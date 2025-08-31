@@ -1,0 +1,445 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  color: #333;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  text-align: center;
+  color: white;
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.main-card {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.addiction-selector {
+  margin-bottom: 30px;
+}
+
+.addiction-selector h3 {
+  margin-bottom: 15px;
+  color: #4a5568;
+}
+
+.addiction-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.addiction-card {
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.addiction-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.addiction-card.selected {
+  border-color: #667eea;
+  background: #f7fafc;
+}
+
+.addiction-card .icon {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.addiction-card .name {
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.date-input-section {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 30px;
+}
+
+.date-input-section h3 {
+  margin-bottom: 20px;
+  color: #4a5568;
+  text-align: center;
+}
+
+.date-inputs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.date-input {
+  display: flex;
+  flex-direction: column;
+}
+
+.date-input label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #4a5568;
+}
+
+.date-input select {
+  padding: 12px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.date-input select:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.calculate-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  width: 100%;
+}
+
+.calculate-btn:hover {
+  transform: translateY(-2px);
+}
+
+.results-section {
+  display: none;
+}
+
+.time-display {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: white;
+  border-radius: 15px;
+  padding: 30px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.time-display h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.time-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 15px;
+}
+
+.time-unit {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.time-unit .number {
+  font-size: 2rem;
+  font-weight: bold;
+  display: block;
+}
+
+.time-unit .label {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.calendar-section {
+  margin-bottom: 30px;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.calendar-nav {
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  background: #f7fafc;
+  padding: 10px;
+  border-radius: 12px;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.calendar-day {
+  aspect-ratio: 1;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 0;
+  width: 100%;
+  height: auto;
+  min-height: 35px;
+}
+
+.calendar-day.header {
+  background: none;
+  color: #718096;
+  cursor: default;
+}
+
+.calendar-day.clean {
+  background: #48bb78;
+  color: white;
+}
+
+.calendar-day.relapse {
+  background: #f56565;
+  color: white;
+}
+
+.calendar-day.today {
+  border: 2px solid #667eea;
+}
+
+.calendar-day:hover:not(.header) {
+  transform: scale(1.1);
+}
+
+.milestones {
+  background: #f7fafc;
+  border-radius: 12px;
+  padding: 25px;
+}
+
+.milestones h3 {
+  margin-bottom: 20px;
+  color: #4a5568;
+  text-align: center;
+}
+
+.milestone {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.milestone.achieved {
+  background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+  color: white;
+}
+
+.milestone.next {
+  background: linear-gradient(135deg, #ed8936 0%, #dd6b20 100%);
+  color: white;
+  animation: pulse 2s infinite;
+}
+
+.milestone.future {
+  background: #e2e8f0;
+  color: #718096;
+}
+
+.milestone .icon {
+  font-size: 1.5rem;
+  margin-right: 15px;
+}
+
+.milestone .content {
+  flex: 1;
+}
+
+.milestone .time {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.milestone .description {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card .number {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #667eea;
+}
+
+.stat-card .label {
+  color: #718096;
+  margin-top: 5px;
+}
+
+/* Animações especiais */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.celebrate {
+  animation: celebrate 0.6s ease;
+}
+
+@keyframes celebrate {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Responsivo Mobile */
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .main-card {
+    padding: 20px;
+  }
+
+  .addiction-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .date-inputs {
+    grid-template-columns: 1fr;
+  }
+
+  .time-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .calendar-grid {
+    padding: 8px;
+    gap: 1px;
+  }
+
+  .calendar-day {
+    font-size: 0.7rem;
+    min-height: 30px;
+  }
+
+  .calendar-header {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .calendar-nav {
+    padding: 6px 10px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 10px;
+  }
+
+  .calendar-grid {
+    padding: 5px;
+    gap: 1px;
+  }
+
+  .calendar-day {
+    font-size: 0.65rem;
+    min-height: 25px;
+  }
+
+  .calendar-header h3 {
+    font-size: 1.2rem;
+  }
+}

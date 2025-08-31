@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tempo Limpo - Calculadora de Recuperação</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>⏰ Tempo Limpo</h1>
+        <p>Acompanhe sua jornada de recuperação!</p>
+      </div>
+
+      <div class="main-card">
+        <div class="addiction-selector">
+          <h3>Escolha sua jornada de recuperação:</h3>
+          <div class="addiction-grid">
+            <div class="addiction-card" data-addiction="alcool">
+              <div class="icon">🍺</div>
+              <div class="name">Álcool</div>
+            </div>
+            <div class="addiction-card" data-addiction="cigarro">
+              <div class="icon">🚬</div>
+              <div class="name">Cigarro</div>
+            </div>
+            <div class="addiction-card" data-addiction="drogas">
+              <div class="icon">💊</div>
+              <div class="name">Drogas</div>
+            </div>
+            <div class="addiction-card" data-addiction="pornografia">
+              <div class="icon">🔞</div>
+              <div class="name">Pornografia</div>
+            </div>
+            <div class="addiction-card" data-addiction="jogos">
+              <div class="icon">🎲</div>
+              <div class="name">Jogos/Apostas</div>
+            </div>
+            <div class="addiction-card" data-addiction="redes-sociais">
+              <div class="icon">📱</div>
+              <div class="name">Redes Sociais</div>
+            </div>
+            <div class="addiction-card" data-addiction="compras">
+              <div class="icon">🛍️</div>
+              <div class="name">Compras</div>
+            </div>
+            <div class="addiction-card" data-addiction="comida">
+              <div class="icon">🍰</div>
+              <div class="name">Compulsão Alimentar</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="date-input-section">
+          <h3>Quando você parou? Selecione a data:</h3>
+          <div class="date-inputs">
+            <div class="date-input">
+              <label>Dia</label>
+              <select id="day"></select>
+            </div>
+            <div class="date-input">
+              <label>Mês</label>
+              <select id="month"></select>
+            </div>
+            <div class="date-input">
+              <label>Ano</label>
+              <select id="year"></select>
+            </div>
+          </div>
+          <button class="calculate-btn" onclick="calculateCleanTime()">
+            🚀 Calcular Meu Tempo Limpo
+          </button>
+        </div>
+      </div>
+
+      <div class="results-section" id="results">
+        <div class="time-display">
+          <h2>🎉 Seu Tempo Limpo</h2>
+          <div class="time-grid" id="timeGrid"></div>
+        </div>
+
+        <div class="main-card">
+          <div class="calendar-section">
+            <div class="calendar-header">
+              <button class="calendar-nav" onclick="changeMonth(-1)">
+                ◀ Anterior
+              </button>
+              <h3 id="calendarTitle"></h3>
+              <button class="calendar-nav" onclick="changeMonth(1)">
+                Próximo ▶
+              </button>
+            </div>
+            <div class="calendar-grid" id="calendar"></div>
+          </div>
+
+          <div class="milestones">
+            <h3>🏆 Marcos da Recuperação</h3>
+            <div id="milestonesList"></div>
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="number" id="totalDays">0</div>
+            <div class="label">Dias Limpos</div>
+          </div>
+          <div class="stat-card">
+            <div class="number" id="cleanStreak">0</div>
+            <div class="label">Sequência Atual</div>
+          </div>
+          <div class="stat-card">
+            <div class="number" id="nextMilestone">0</div>
+            <div class="label">Próximo Marco</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
